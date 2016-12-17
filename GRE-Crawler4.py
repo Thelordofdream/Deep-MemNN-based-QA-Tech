@@ -6,7 +6,7 @@ import pymysql.cursors
 import requests
 from bs4 import BeautifulSoup
 
-# XDF红皮 单选 230-275 等价 234-316
+# XDF红皮 单选 230-275 等价 234-315
 # Connect to the database
 connection = pymysql.connect(user='root', password='root',
                              database='GRE')
