@@ -1,0 +1,12 @@
+/.idea
+/model_dbow
+/model_dm
+/d2v_vecs.txt
+/data
+/model_w2v
+/w2v_vecs.txt
+Doc2Vec.pyc
+Word2Vec.pyc
+
+.idea/workspace.xml
+
