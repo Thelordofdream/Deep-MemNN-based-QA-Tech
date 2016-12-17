@@ -23,6 +23,5 @@ Doc2Vec.Train_Doc2Vec(Sentences, model_dm, model_dbow)
 # ===========================================
 # Generalize words
 train_vecs = Doc2Vec.buildtrainvecs(model_dm, model_dbow, Sentences, size = 400)
-print train_vecs[0]
 Doc2Vec.storeVecs(train_vecs, 'd2v_vecs.txt')
 

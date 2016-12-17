@@ -3,8 +3,12 @@ import gensim
 
 # ===========================================
 # Load dictionary
-Dictionary =
+Dictionary = []
+with open("word.list", 'r') as infile:
+    words = infile.readlines()
+    print words[0]
 
+'''
 # ===========================================
 # instantiate our DM and DBOW models
 size = 400
@@ -26,3 +30,4 @@ model_w2v = gensim.models.word2vec.Word2Vec(size=n_dim, min_count=10)
 model_w2v.build_vocab(Dictionary)
 # Store initialized model
 model_w2v.save("model_w2v")
+'''
