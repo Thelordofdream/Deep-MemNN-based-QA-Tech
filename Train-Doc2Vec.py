@@ -12,24 +12,17 @@ cursor = connection.cursor()
 commit = "select * from GRES"
 cursor.execute(commit)
 Sentences = [each[1] for each in cursor.fetchall()]
-
-# ===========================================
-# instantiate our DM and DBOW models
-size = 400
-model_dm = gensim.models.Doc2Vec(min_count=1, window=10, size=size, sample=1e-3, negative=5, workers=3)
-model_dbow = gensim.models.Doc2Vec(min_count=1, window=10, size=size, sample=1e-3, negative=5, dm=0, workers=3)
-# build vocab
 Sentences = Doc2Vec.Preprocessing(Sentences)
-model_dm.build_vocab(Sentences)
-model_dbow.build_vocab(Sentences)
 
 # ===========================================
 # Train models
+model_dbow = gensim.models.Doc2Vec.load('model_dbow')
+model_dm = gensim.models.Doc2Vec.load('model_dm')
 Doc2Vec.Train_Doc2Vec(Sentences, model_dm, model_dbow)
 
 # ===========================================
 # Generalize words
-train_vecs = Doc2Vec.buildtrainvecs(model_dm, model_dbow, Sentences, size)
+train_vecs = Doc2Vec.buildtrainvecs(model_dm, model_dbow, Sentences, size = 400)
 print train_vecs[0]
 Doc2Vec.storeVecs(train_vecs, 'd2v_vecs.txt')
 
