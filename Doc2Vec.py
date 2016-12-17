@@ -61,7 +61,7 @@ def buildtrainvecs(model_dm, model_dbow, sentences, size):
     return train_vecs
 
 
-def Train_Doc2Vec(Sentences, model_dm, model_dbow):
+def Preprocessing(Sentences):
     # ===========================================
     # Pretreatment
     number = len(Sentences)
@@ -75,9 +75,10 @@ def Train_Doc2Vec(Sentences, model_dm, model_dbow):
     # build vocab over all reviews
     temp = x_train[:]
     temp.extend(unsup_reviews)
-    model_dm.build_vocab(temp)
-    model_dbow.build_vocab(temp)
+    return temp
 
+
+def Train_Doc2Vec(Sentences, model_dm, model_dbow):
     # ===========================================
     # Train Doc2Vec models
     iteration = 10
@@ -85,12 +86,11 @@ def Train_Doc2Vec(Sentences, model_dm, model_dbow):
     for epoch in range(iteration):
         # perm = np.random.permutation(all_train_reviews.shape[0])
         print "+=== Iteration %d ===+" % epoch
-        random.shuffle(temp)
-        model_dm.train(temp)
-        model_dbow.train(temp)
+        random.shuffle(Sentences)
+        model_dm.train(Sentences)
+        model_dbow.train(Sentences)
 
     # ===========================================
     # Store model and result
     model_dm.save("model_dm")
     model_dbow.save("model_dbow")
-    return temp
