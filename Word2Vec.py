@@ -38,7 +38,6 @@ def storeVecs(input, filename):
 
 
 def Train_Wrod2VEc(Sentences, model_w2v):
-    number = len(Sentences)
     # ===========================================
     # Pretreatment
     x_train = cleanText(Sentences)
@@ -47,5 +46,6 @@ def Train_Wrod2VEc(Sentences, model_w2v):
     # Train the model over train_reviews (this may take several minutes)
     model_w2v.train(x_train)
 
+    # ===========================================
     # Store model and result
     model_w2v.save("model_w2v")

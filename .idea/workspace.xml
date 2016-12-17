@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e23d2f5-5a4c-41e8-bc1a-6baf68ae7079" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Train-Word2Vec.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc2Vec.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Train-Doc2Vec.py" afterPath="$PROJECT_DIR$/Train-Doc2Vec.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Train-LSTM.py" afterPath="$PROJECT_DIR$/Train-LSTM.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Train-Word2Vec.py" afterPath="$PROJECT_DIR$/Train-Word2Vec.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Word2Vec.py" afterPath="$PROJECT_DIR$/Word2Vec.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,10 +24,34 @@
       <file leaf-file-name="Train-Doc2Vec.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Train-Doc2Vec.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="111" column="18" lean-forward="false" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+            <state relative-caret-position="302">
+              <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Doc2Vec.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Doc2Vec.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="95" column="15" lean-forward="false" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Word2Vec.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Word2Vec.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -35,8 +60,8 @@
       <file leaf-file-name="Train-Word2Vec.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Train-Word2Vec.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+            <state relative-caret-position="375">
+              <caret line="25" column="2" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="18" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -44,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="TF_LSTM2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/beta/TF_LSTM2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="735">
+              <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -103,8 +128,10 @@
         <option value="$PROJECT_DIR$/Train_Doc2Vec.py" />
         <option value="$PROJECT_DIR$/Use_Model.py" />
         <option value="$PROJECT_DIR$/Train-LSTM.py" />
-        <option value="$PROJECT_DIR$/Train-Word2Vec.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Train-Word2Vec.py" />
+        <option value="$PROJECT_DIR$/Word2Vec.py" />
+        <option value="$PROJECT_DIR$/Doc2Vec.py" />
         <option value="$PROJECT_DIR$/Train-Doc2Vec.py" />
       </list>
     </option>
@@ -461,7 +488,21 @@
       <option name="project" value="LOCAL" />
       <updated>1481979832412</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="load train Word2Vec">
+      <created>1481980905611</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1481980905611</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Standardize Word2Vec">
+      <created>1481982381799</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1481982381799</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -474,7 +515,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35192564" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28286853" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -498,7 +539,9 @@
     <MESSAGE value="build word2vec dataset" />
     <MESSAGE value="pack beta version codes" />
     <MESSAGE value="load train Doc2Vec" />
-    <option name="LAST_COMMIT_MESSAGE" value="load train Doc2Vec" />
+    <MESSAGE value="load train Word2Vec" />
+    <MESSAGE value="Standardize Word2Vec" />
+    <option name="LAST_COMMIT_MESSAGE" value="Standardize Word2Vec" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -559,6 +602,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
+          <folding>
+            <element signature="e#895#913#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -566,6 +612,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -580,6 +627,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
+          <folding>
+            <element signature="e#895#913#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -587,6 +637,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -601,6 +652,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#895#913#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -608,6 +662,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -615,6 +670,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
+          <folding>
+            <element signature="e#895#913#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -622,6 +680,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -650,20 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -713,6 +758,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="1014" column="0" lean-forward="false" selection-start-line="1014" selection-start-column="0" selection-end-line="1014" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -741,28 +787,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Train-Word2Vec.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+        <state relative-caret-position="-305">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#895#913#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Train-Word2Vec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="2" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Word2Vec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Doc2Vec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="95" column="15" lean-forward="false" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Train-Doc2Vec.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="111" column="18" lean-forward="false" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+        <state relative-caret-position="302">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
