@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e23d2f5-5a4c-41e8-bc1a-6baf68ae7079" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GRE-Crawler1.py" afterPath="$PROJECT_DIR$/beta/GRE-Crawler1.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GRE-Crawler2.py" afterPath="$PROJECT_DIR$/beta/GRE-Crawler2.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GRE-Crawler3.py" afterPath="$PROJECT_DIR$/beta/GRE-Crawler3.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GRE-Crawler4.py" afterPath="$PROJECT_DIR$/beta/GRE-Crawler4.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/KapashiDarshan.pdf" afterPath="$PROJECT_DIR$/papers/KapashiDarshan.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TF_LSTM1.py" afterPath="$PROJECT_DIR$/beta/TF_LSTM1.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TF_LSTM2.py" afterPath="$PROJECT_DIR$/beta/TF_LSTM2.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/基于记忆网络的阅读理解回答技术.pdf" afterPath="$PROJECT_DIR$/papers/基于记忆网络的阅读理解回答技术.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,6 +115,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/beta" />
+      <recent name="$PROJECT_DIR$/papers" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -386,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481971126487</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="pack beta version codes">
+      <created>1481971234578</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1481971234578</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -421,7 +429,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first upload" />
     <MESSAGE value="build word2vec dataset" />
-    <option name="LAST_COMMIT_MESSAGE" value="build word2vec dataset" />
+    <MESSAGE value="pack beta version codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="pack beta version codes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -448,7 +457,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM1.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
@@ -458,7 +467,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM2.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
@@ -478,7 +487,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM1.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
@@ -488,7 +497,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM2.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
@@ -508,7 +517,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM1.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -518,7 +527,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM2.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
@@ -528,7 +537,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM1.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
@@ -538,7 +547,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM2.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -578,7 +587,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/TF_LSTM2.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
@@ -588,7 +597,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TF_LSTM1.py">
+    <entry file="file://$PROJECT_DIR$/beta/TF_LSTM1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="42" />
