@@ -15,9 +15,8 @@ cursor.execute(commit)
 Sentences = [each[1] for each in cursor.fetchall()]
 number = len(Sentences)
 
+
 # ===========================================
-
-
 def cleanText(corpus):
     punctuation = """.,?!:;(){}[]"""
     corpus = [z.lower().replace('\n', '') for z in corpus]
@@ -110,5 +109,6 @@ train_vecs = buildtrainvecs(model_dm, model_dbow, temp1, iteration)
 model_dm.save("model_dm")
 model_dbow.save("model_dbow")
 
-storeVecs(train_vecs, 'train_vecs.txt')
+print train_vecs[0]
+storeVecs(train_vecs, 'd2v_vecs.txt')
 
