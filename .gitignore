@@ -11,4 +11,4 @@ Word2Vec.pyc
 .idea/workspace.xml
 
 /model/GoogleNews-vectors-negative300.bin
-GoogleNews-vectors-negative300.bin
+/model/
