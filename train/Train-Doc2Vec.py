@@ -1,5 +1,3 @@
-import numpy as np
-import random
 import gensim
 LabeledSentence = gensim.models.doc2vec.LabeledSentence
 import pymysql.cursors
@@ -16,8 +14,8 @@ Sentences = Doc2Vec.Preprocessing(Sentences)
 
 # ===========================================
 # Train models
-model_dbow = gensim.models.Doc2Vec.load('model_dbow')
-model_dm = gensim.models.Doc2Vec.load('model_dm')
+model_dbow = gensim.models.Doc2Vec.load('./model/model_dbow')
+model_dm = gensim.models.Doc2Vec.load('./model/model_dm')
 Doc2Vec.Train_Doc2Vec(Sentences, model_dm, model_dbow)
 
 # ===========================================

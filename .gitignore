@@ -1,12 +1,14 @@
 /.idea
-/model_dbow
-/model_dm
-/d2v_vecs.txt
+/model/model_dbow
+/model/model_dm
+/model/d2v_vecs.txt
 /data
-/model_w2v
-/w2v_vecs.txt
+/model/model_w2v
+/model/w2v_vecs.txt
 Doc2Vec.pyc
 Word2Vec.pyc
 
 .idea/workspace.xml
 
+/model/GoogleNews-vectors-negative300.bin
+GoogleNews-vectors-negative300.bin

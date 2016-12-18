@@ -1,7 +1,7 @@
-import gensim
-import pymysql.cursors
 import Word2Vec
+import gensim
 import numpy as np
+import pymysql.cursors
 
 # ===========================================
 # load data
@@ -13,7 +13,7 @@ Sentences = [each[1] for each in cursor.fetchall()]
 
 # ===========================================
 # Train model
-model_w2v = gensim.models.Word2Vec.load('model_w2v')
+model_w2v = gensim.models.Word2Vec.load('./model/model_w2v')
 Word2Vec.Train_Wrod2VEc(Sentences, model_w2v)
 
 # ===========================================
