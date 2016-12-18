@@ -92,5 +92,5 @@ def Train_Doc2Vec(Sentences, model_dm, model_dbow):
 
     # ===========================================
     # Store model and result
-    model_dm.save("./model/model_dm")
-    model_dbow.save("./model/model_dbow")
+    model_dm.save("../model/model_dm")
+    model_dbow.save("../model/model_dbow")

@@ -19,8 +19,8 @@ model_dm.build_vocab(Dictionary)
 model_dbow.build_vocab(Dictionary)
 
 # Store initialized model
-model_dm.save("model_dm")
-model_dbow.save("model_dbow")
+model_dm.save("../model/model_dm")
+model_dbow.save("../model/model_dbow")
 
 # ===========================================
 # Initialize Word2Vecmodel
@@ -29,5 +29,5 @@ model_w2v = gensim.models.word2vec.Word2Vec(size=n_dim, min_count=10)
 # build vocab
 model_w2v.build_vocab(Dictionary)
 # Store initialized model
-model_w2v.save("model_w2v")
+model_w2v.save("../model/model_w2v")
 '''

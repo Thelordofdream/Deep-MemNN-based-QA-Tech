@@ -14,13 +14,13 @@ Sentences = Doc2Vec.Preprocessing(Sentences)
 
 # ===========================================
 # Train models
-model_dbow = gensim.models.Doc2Vec.load('./model/model_dbow')
-model_dm = gensim.models.Doc2Vec.load('./model/model_dm')
+model_dbow = gensim.models.Doc2Vec.load('../model/model_dbow')
+model_dm = gensim.models.Doc2Vec.load('../model/model_dm')
 Doc2Vec.Train_Doc2Vec(Sentences, model_dm, model_dbow)
 
 # ===========================================
 # Generalize words
 size=400
 train_vecs = Doc2Vec.buildtrainvecs(model_dm, model_dbow, Sentences, size)
-Doc2Vec.storeVecs(train_vecs, 'd2v_vecs.txt')
+Doc2Vec.storeVecs(train_vecs, '../model/d2v_vecs.txt')
 

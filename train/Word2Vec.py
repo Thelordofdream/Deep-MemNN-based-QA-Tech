@@ -48,4 +48,4 @@ def Train_Wrod2VEc(Sentences, model_w2v):
 
     # ===========================================
     # Store model and result
-    model_w2v.save("./model/model_w2v")
+    model_w2v.save("../model/model_w2v")
