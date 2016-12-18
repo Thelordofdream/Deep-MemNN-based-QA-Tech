@@ -23,7 +23,7 @@ import random
 import tensorflow as tf
 import tensorflow.contrib.layers as layers
 
-map_fn = tf.python.functional_ops.map_fn
+map_fn = tf.python.map_fn
 
 ################################################################################
 ##                           DATASET GENERATION                               ##
@@ -34,12 +34,14 @@ map_fn = tf.python.functional_ops.map_fn
 ##  corresponds to bit len(number) - t.                                       ##
 ################################################################################
 
+
 def as_bytes(num, final_size):
     res = []
     for _ in range(final_size):
         res.append(num % 2)
         num //= 2
     return res
+
 
 def generate_example(num_bits):
     a = random.randint(0, 2**(num_bits - 1) - 1)
@@ -48,6 +50,7 @@ def generate_example(num_bits):
     return (as_bytes(a,  num_bits),
             as_bytes(b,  num_bits),
             as_bytes(res,num_bits))
+
 
 def generate_batch(num_bits, batch_size):
     """Generates instance of a problem.
@@ -157,9 +160,9 @@ valid_x, valid_y = generate_batch(num_bits=NUM_BITS, batch_size=100)
 
 session = tf.Session()
 # For some reason it is our job to do this:
-session.run(tf.initialize_all_variables())
+session.run(tf.global_variables_initializer())
 
-for epoch in range(1000):
+for epoch in range(10):
     epoch_error = 0
     for _ in range(ITERATIONS_PER_EPOCH):
         # here train_fn is what triggers backprop. error and accuracy on their
