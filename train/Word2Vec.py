@@ -3,6 +3,7 @@ import numpy as np
 
 LabeledSentence = gensim.models.doc2vec.LabeledSentence
 
+
 # ===========================================
 def cleanText(corpus):
     punctuation = """.,?!:;(){}[]"""
@@ -11,23 +12,21 @@ def cleanText(corpus):
 
     # treat punctuation as individual words
     for c in punctuation:
-        corpus = [z.replace(c, ' %s ' % c) for z in corpus]
+        corpus = [z.replace(c, '') for z in corpus]
     corpus = [z.split() for z in corpus]
     return corpus
 
 
 def buildWordVector(model_w2v, text, size):
+    sen = []
     vec = np.zeros(size).reshape((1, size))
-    count = 0.
     for word in text:
         try:
-            vec += model_w2v[word].reshape((1, size))
-            count += 1.
+            vec = model_w2v[word].reshape((1, size))
+            sen.extend(vec)
         except:
             continue
-    if count != 0:
-        vec /= count
-    return vec
+    return sen
 
 
 def storeVecs(input, filename):
@@ -39,12 +38,8 @@ def storeVecs(input, filename):
 
 def Train_Wrod2VEc(Sentences, model_w2v):
     # ===========================================
-    # Pretreatment
-    x_train = cleanText(Sentences)
-
-    # ===========================================
     # Train the model over train_reviews (this may take several minutes)
-    model_w2v.train(x_train)
+    model_w2v.train(Sentences)
 
     # ===========================================
     # Store model and result

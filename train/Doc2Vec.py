@@ -12,7 +12,7 @@ def cleanText(corpus):
 
     # treat punctuation as individual words
     for c in punctuation:
-        corpus = [z.replace(c, ' ') for z in corpus]
+        corpus = [z.replace(c, '') for z in corpus]
     corpus = [z.split() for z in corpus]
     return corpus
 
@@ -32,16 +32,12 @@ def getVecs(model, corpus, size):
     vecs = []
     for z in corpus:
         vec = np.zeros(size).reshape((1, size))
-        count = 0.
         for each in np.array(model[z.words]):
             try:
-                vec += each.reshape((1, size))
-                count += 1.
+                vec = each.reshape((1, size))
+                vecs.extend(vec)
             except:
                 continue
-        if count != 0:
-            vec /= count
-        vecs.extend(vec)
     return np.array(vecs)
 
 
