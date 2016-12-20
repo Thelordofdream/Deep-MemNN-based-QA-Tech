@@ -12,8 +12,8 @@ def grabVecs(filename):
     return pickle.load(fr)
 
 
-x_train = grabVecs('./data/dataset.txt')
-y_train = grabVecs('./data/label.txt')
+x_train = grabVecs('dataset.txt')
+y_train = grabVecs('label.txt')
 
 '''
 MNIST的数据是一个28*28的图像，这里RNN测试，把他看成一行行的序列（28维度（28长的sequence）*28行）
@@ -21,7 +21,7 @@ MNIST的数据是一个28*28的图像，这里RNN测试，把他看成一行行�
 
 # RNN学习时使用的参数
 learning_rate = 0.001
-training_iters = 1
+training_iters = 10
 batch_size = 32
 display_step = 10
 
@@ -42,10 +42,12 @@ y = tf.placeholder("float", [None, n_classes])
 # 随机初始化每一层的权值和偏置
 weights = {
     'hidden': tf.Variable(tf.random_normal([n_input, n_hidden])),  # Hidden layer weights
+    'fc1': tf.Variable(tf.random_normal([n_steps * n_hidden, n_hidden])),
     'out': tf.Variable(tf.random_normal([n_hidden, n_classes]))
 }
 biases = {
     'hidden': tf.Variable(tf.random_normal([n_hidden])),
+    'fc1': tf.Variable(tf.random_normal([n_hidden])),
     'out': tf.Variable(tf.random_normal([n_classes]))
 }
 
@@ -57,9 +59,7 @@ biases = {
 def RNN(_X, _weights, _biases):
     # 规整输入的数据
     _X = tf.transpose(_X, [1, 0, 2])  # permute n_steps and batch_size
-    print(tf.shape(_X))
     _X = tf.reshape(_X, [-1, n_input])  # (n_steps*batch_size, n_input)
-    print(tf.shape(_X))
     # 输入层到隐含层，第一次是直接运算
     _X = tf.matmul(_X, _weights['hidden']) + _biases['hidden']
     # 之后使用LSTM
@@ -68,9 +68,10 @@ def RNN(_X, _weights, _biases):
     _X = tf.split(0, n_steps, _X)  # n_steps * (batch_size, n_hidden)
     # 开始跑RNN那部分
     outputs, states = tf.nn.rnn(lstm_cell, _X, initial_state=lstm_cell.zero_state(batch_size, tf.float32))
-
+    output = tf.concat(1, [i for i in outputs])
+    out = tf.matmul(output, _weights['fc1']) + _biases['fc1']
     # 输出层
-    return tf.matmul(outputs[-1], _weights['out']) + _biases['out']
+    return tf.matmul(out, _weights['out']) + _biases['out']
 
 
 pred = RNN(x, weights, biases)

@@ -1,3 +1,4 @@
+# coding=utf-8
 from tensorflow.examples.tutorials.mnist import input_data
 
 # mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
@@ -14,12 +15,12 @@ def grabVecs(filename):
     return pickle.load(fr)
 
 
-x_train = grabVecs('dataset.txt')
-y_train = grabVecs('label.txt')
+x_train = grabVecs('./data/dataset.txt')
+y_train = grabVecs('./data/label.txt')
 
 # Parameters
 learning_rate = 0.001
-training_iters = 100000
+training_iters = 10
 batch_size = 64
 display_step = 10
 
@@ -40,12 +41,12 @@ y = tf.placeholder("float", [None, n_classes])
 weights = {
     # Hidden layer weights => 2*n_hidden because of foward + backward cells
     'hidden': tf.Variable(tf.random_normal([n_input, 2 * n_hidden])),
-    #'gather1': tf.Variable(tf.truncated_normal([2 * n_hidden, 2], stddev=0.1)),
-    'gather1': tf.Variable(tf.zeros([1])),
+    'fc1': tf.Variable(tf.random_normal([n_steps * 2 * n_hidden, n_hidden])),
     'out': tf.Variable(tf.random_normal([n_hidden, n_classes])),
 }
 biases = {
     'hidden': tf.Variable(tf.random_normal([2 * n_hidden])),
+    'fc1': tf.Variable(tf.random_normal([n_hidden])),
     'out': tf.Variable(tf.random_normal([n_classes]))
 }
 
@@ -76,10 +77,11 @@ def BiRNN(_X, _istate_fw, _istate_bw, _weights, _biases, _batch_size, _seq_len):
                                     initial_state_bw=lstm_bw_cell.zero_state(batch_size, tf.float32),
                                     sequence_length=_seq_len)
 
+    out = tf.concat(1, [i for i in outputs])
     # Linear activation
-    output = output1.h * _weights['gather1'] + output2.h * (1 - _weights['gather1'])
+    o = tf.matmul(out, _weights['fc1']) + _biases['fc1']
     # Get inner loop last output
-    return tf.matmul(output, _weights['out']) + _biases['out']
+    return tf.matmul(o, _weights['out']) + _biases['out']
 
 
 pred = BiRNN(x, istate_fw, istate_bw, weights, biases, batch_size, n_steps)
@@ -98,32 +100,31 @@ init = tf.global_variables_initializer()
 # Launch the graph
 with tf.Session() as sess:
     sess.run(init)
-    step = 1
-    # Keep training until reach max iterations
-    while step * batch_size < 3265:
-        batch_xs = x_train[(step - 1) * batch_size: step * batch_size]
-        batch_ys = y_train[(step - 1) * batch_size: step * batch_size]
-        # Reshape data to get 28 seq of 28 elements
-        # batch_xs = batch_xs.reshape((batch_size, n_steps, n_input))
-        # Fit training using batch data
-        sess.run(optimizer, feed_dict={x: batch_xs, y: batch_ys,
-                                       istate_fw: np.zeros((batch_size, 2 * n_hidden)),
-                                       istate_bw: np.zeros((batch_size, 2 * n_hidden))})
-        if step % display_step == 0:
-            # Calculate batch accuracy
-            acc = sess.run(accuracy, feed_dict={x: batch_xs, y: batch_ys,
-                                                istate_fw: np.zeros((batch_size, 2 * n_hidden)),
-                                                istate_bw: np.zeros((batch_size, 2 * n_hidden))})
-            # Calculate batch loss
-            loss = sess.run(cost, feed_dict={x: batch_xs, y: batch_ys,
-                                             istate_fw: np.zeros((batch_size, 2 * n_hidden)),
-                                             istate_bw: np.zeros((batch_size, 2 * n_hidden))})
-            print("Iter " + str(step * batch_size) + ", Minibatch Loss= " + "{:.6f}".format(
-                loss) + ", Training Accuracy= " + "{:.5f}".format(acc))
-        step += 1
+    for i in range(training_iters):
+        # 持续迭代
+        step = 1
+        while step * batch_size < 3265:
+            batch_xs = x_train[(step - 1) * batch_size: step * batch_size]
+            batch_ys = y_train[(step - 1) * batch_size: step * batch_size]
+            # Reshape data to get 28 seq of 28 elements
+            # batch_xs = batch_xs.reshape((batch_size, n_steps, n_input))
+            # Fit training using batch data
+            sess.run(optimizer, feed_dict={x: batch_xs, y: batch_ys,
+                                           istate_fw: np.zeros((batch_size, 2 * n_hidden)),
+                                           istate_bw: np.zeros((batch_size, 2 * n_hidden))})
+            if step % display_step == 0:
+                # Calculate batch accuracy
+                acc = sess.run(accuracy, feed_dict={x: batch_xs, y: batch_ys,
+                                                    istate_fw: np.zeros((batch_size, 2 * n_hidden)),
+                                                    istate_bw: np.zeros((batch_size, 2 * n_hidden))})
+                # Calculate batch loss
+                loss = sess.run(cost, feed_dict={x: batch_xs, y: batch_ys,
+                                                 istate_fw: np.zeros((batch_size, 2 * n_hidden)),
+                                                 istate_bw: np.zeros((batch_size, 2 * n_hidden))})
+                print("Iter " + str(i + 1) + ", Step " + str(step) + ", Minibatch Loss= " + "{:.6f}".format(
+                    loss) + ", Training Accuracy= " + "{:.5f}".format(acc))
+            step += 1
     print("Optimization Finished!")
-    print sess.run(weights['gather1'])
-    print sess.run(weights['gather2'])
     # Calculate accuracy for 128 mnist test images
     test_len = batch_size
     test_data = x_train[3265 - test_len:]
