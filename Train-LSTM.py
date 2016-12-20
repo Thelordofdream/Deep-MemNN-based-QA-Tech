@@ -21,7 +21,7 @@ MNIST的数据是一个28*28的图像，这里RNN测试，把他看成一行行�
 
 # RNN学习时使用的参数
 learning_rate = 0.01
-training_iters = 10
+training_iters = 1
 batch_size = 32
 display_step = 10
 
