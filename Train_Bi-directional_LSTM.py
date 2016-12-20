@@ -21,7 +21,7 @@ y_train = grabVecs('./data/label.txt')
 # Parameters
 learning_rate = 0.001
 training_iters = 10
-batch_size = 64
+batch_size = 32
 display_step = 10
 
 # Network Parameters
