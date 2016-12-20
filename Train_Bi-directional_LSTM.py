@@ -81,7 +81,7 @@ def BiRNN(_X, _istate_fw, _istate_bw, _weights, _biases, _batch_size, _seq_len):
     # Linear activation
     o = tf.matmul(out, _weights['fc1']) + _biases['fc1']
     # Get inner loop last output
-    return tf.matmul(o, _weights['out']) + _biases['out']
+    return tf.sigmoid(tf.matmul(o, _weights['out']) + _biases['out'])
 
 
 pred = BiRNN(x, istate_fw, istate_bw, weights, biases, batch_size, n_steps)

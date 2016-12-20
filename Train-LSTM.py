@@ -71,7 +71,7 @@ def RNN(_X, _weights, _biases):
     output = tf.concat(1, [i for i in outputs])
     out = tf.matmul(output, _weights['fc1']) + _biases['fc1']
     # 输出层
-    return tf.matmul(out, _weights['out']) + _biases['out']
+    return tf.sigmoid(tf.matmul(out, _weights['out']) + _biases['out'])
 
 
 pred = RNN(x, weights, biases)
