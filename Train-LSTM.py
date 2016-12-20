@@ -12,15 +12,15 @@ def grabVecs(filename):
     return pickle.load(fr)
 
 
-x_train = grabVecs('dataset.txt')
-y_train = grabVecs('label.txt')
+x_train = grabVecs('./data/dataset.txt')
+y_train = grabVecs('./data/label.txt')
 
 '''
 MNIST的数据是一个28*28的图像，这里RNN测试，把他看成一行行的序列（28维度（28长的sequence）*28行）
 '''
 
 # RNN学习时使用的参数
-learning_rate = 0.001
+learning_rate = 0.01
 training_iters = 10
 batch_size = 32
 display_step = 10
