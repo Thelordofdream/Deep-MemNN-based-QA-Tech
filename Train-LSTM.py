@@ -71,7 +71,7 @@ def RNN(_X, _weights, _biases):
     output = tf.concat(1, [i for i in outputs])
     out = tf.matmul(output, _weights['fc1']) + _biases['fc1']
     # 输出层
-    return tf.sigmoid(tf.matmul(out, _weights['out']) + _biases['out'])
+    return tf.matmul(out, _weights['out']) + _biases['out']
 
 
 pred = RNN(x, weights, biases)
@@ -95,10 +95,10 @@ with tf.Session() as sess:
         step = 1
         while step * batch_size < 3265:
             # 随机抽出这一次迭代训练时用的数据
-            batch_xs = x_train[(step-1) * batch_size : step * batch_size]
-            batch_ys = y_train[(step-1) * batch_size : step * batch_size]
+            batch_xs = np.array(x_train[(step-1) * batch_size : step * batch_size])
+            batch_ys = np.array(y_train[(step-1) * batch_size : step * batch_size])
             # 对数据进行处理，使得其符合输入
-            # batch_xs = batch_xs.reshape((batch_size, n_steps, n_input))
+            batch_xs = batch_xs.reshape((batch_size, n_steps, n_input))
             # 迭代
             sess.run(optimizer, feed_dict={x: batch_xs, y: batch_ys, istate: np.zeros((batch_size, 2 * n_hidden))})
             # 在特定的迭代回合进行数据的输出
