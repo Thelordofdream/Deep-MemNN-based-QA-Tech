@@ -94,7 +94,7 @@ with tf.Session() as sess:
     for i in range(training_iters):
         # 持续迭代
         step = 1
-        while step * batch_size < number:
+        while step * batch_size <= number:
             # 随机抽出这一次迭代训练时用的数据
             batch_xs = np.array(x_train[(step-1) * batch_size : step * batch_size])
             batch_ys = np.array(y_train[(step-1) * batch_size : step * batch_size])
