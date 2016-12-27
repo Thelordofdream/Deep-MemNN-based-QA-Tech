@@ -14,6 +14,7 @@ def grabVecs(filename):
 
 x_train = grabVecs('./data/dataset.txt')
 y_train = grabVecs('./data/label.txt')
+number = len(x_train)
 
 '''
 MNIST的数据是一个28*28的图像，这里RNN测试，把他看成一行行的序列（28维度（28长的sequence）*28行）
@@ -93,7 +94,7 @@ with tf.Session() as sess:
     for i in range(training_iters):
         # 持续迭代
         step = 1
-        while step * batch_size < 1810:
+        while step * batch_size < number:
             # 随机抽出这一次迭代训练时用的数据
             batch_xs = np.array(x_train[(step-1) * batch_size : step * batch_size])
             batch_ys = np.array(y_train[(step-1) * batch_size : step * batch_size])
@@ -115,8 +116,8 @@ with tf.Session() as sess:
     print("Optimization Finished!")
     # 载入测试集进行测试
     test_len = batch_size
-    test_data = x_train[1810 - test_len:]
-    test_label = y_train[1810 - test_len:]
+    test_data = x_train[number - test_len:]
+    test_label = y_train[number - test_len:]
     print("Testing Accuracy:",
           sess.run(accuracy, feed_dict={x: test_data, y: test_label, istate: np.zeros((test_len, 2 * n_hidden))}))
     saver = tf.train.Saver()

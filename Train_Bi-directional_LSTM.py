@@ -17,6 +17,7 @@ def grabVecs(filename):
 
 x_train = grabVecs('./data/dataset.txt')
 y_train = grabVecs('./data/label.txt')
+number = len(x_train)
 
 # Parameters
 learning_rate = 0.01
@@ -103,7 +104,7 @@ with tf.Session() as sess:
     for i in range(training_iters):
         # 持续迭代
         step = 1
-        while step * batch_size < 1810:
+        while step * batch_size <= number:
             batch_xs = x_train[(step - 1) * batch_size: step * batch_size]
             batch_ys = y_train[(step - 1) * batch_size: step * batch_size]
             # Reshape data to get 28 seq of 28 elements
@@ -127,8 +128,8 @@ with tf.Session() as sess:
     print("Optimization Finished!")
     # Calculate accuracy for 128 mnist test images
     test_len = batch_size
-    test_data = x_train[1810 - test_len:]
-    test_label = y_train[1810 - test_len:]
+    test_data = x_train[number - test_len:]
+    test_label = y_train[number - test_len:]
     print("Testing Accuracy:", sess.run(accuracy, feed_dict={x: test_data, y: test_label,
                                                              istate_fw: np.zeros((test_len, 2 * n_hidden)),
                                                              istate_bw: np.zeros((test_len, 2 * n_hidden))}))
