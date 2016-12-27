@@ -20,7 +20,7 @@ y_train = grabVecs('./data/label.txt')
 
 # Parameters
 learning_rate = 0.01
-training_iters = 1
+training_iters = 30
 batch_size = 32
 display_step = 10
 
@@ -40,14 +40,14 @@ y = tf.placeholder("float", [None, n_classes])
 # Define weights
 weights = {
     # Hidden layer weights => 2*n_hidden because of foward + backward cells
-    'hidden': tf.Variable(tf.random_normal([n_input, 2 * n_hidden])),
-    'fc1': tf.Variable(tf.random_normal([n_steps * 2 * n_hidden, n_hidden])),
-    'out': tf.Variable(tf.random_normal([n_hidden, n_classes])),
+    'hidden': tf.Variable(tf.random_normal([n_input, 2 * n_hidden]), name='hidden_w'),
+    'fc1': tf.Variable(tf.random_normal([n_steps * 2 * n_hidden, n_hidden]), name='fc1_w'),
+    'out': tf.Variable(tf.random_normal([n_hidden, n_classes]), name='out_w'),
 }
 biases = {
-    'hidden': tf.Variable(tf.random_normal([2 * n_hidden])),
-    'fc1': tf.Variable(tf.random_normal([n_hidden])),
-    'out': tf.Variable(tf.random_normal([n_classes]))
+    'hidden': tf.Variable(tf.random_normal([2 * n_hidden]), name='hidden_b'),
+    'fc1': tf.Variable(tf.random_normal([n_hidden]), name='fc1_b'),
+    'out': tf.Variable(tf.random_normal([n_classes]), name='out_b')
 }
 
 
@@ -103,7 +103,7 @@ with tf.Session() as sess:
     for i in range(training_iters):
         # 持续迭代
         step = 1
-        while step * batch_size < 3265:
+        while step * batch_size < 1810:
             batch_xs = x_train[(step - 1) * batch_size: step * batch_size]
             batch_ys = y_train[(step - 1) * batch_size: step * batch_size]
             # Reshape data to get 28 seq of 28 elements
@@ -127,8 +127,11 @@ with tf.Session() as sess:
     print("Optimization Finished!")
     # Calculate accuracy for 128 mnist test images
     test_len = batch_size
-    test_data = x_train[3265 - test_len:]
-    test_label = y_train[3265 - test_len:]
+    test_data = x_train[1810 - test_len:]
+    test_label = y_train[1810 - test_len:]
     print("Testing Accuracy:", sess.run(accuracy, feed_dict={x: test_data, y: test_label,
                                                              istate_fw: np.zeros((test_len, 2 * n_hidden)),
                                                              istate_bw: np.zeros((test_len, 2 * n_hidden))}))
+    saver = tf.train.Saver()
+    save_path = saver.save(sess, "./model/model.ckpt")
+    print("Model saved in file: %s" % save_path)

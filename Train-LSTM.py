@@ -21,7 +21,7 @@ MNIST的数据是一个28*28的图像，这里RNN测试，把他看成一行行�
 
 # RNN学习时使用的参数
 learning_rate = 0.01
-training_iters = 1
+training_iters = 30
 batch_size = 32
 display_step = 10
 
@@ -41,14 +41,14 @@ y = tf.placeholder("float", [None, n_classes])
 
 # 随机初始化每一层的权值和偏置
 weights = {
-    'hidden': tf.Variable(tf.random_normal([n_input, n_hidden])),  # Hidden layer weights
-    'fc1': tf.Variable(tf.random_normal([n_steps * n_hidden, n_hidden])),
-    'out': tf.Variable(tf.random_normal([n_hidden, n_classes]))
+    'hidden': tf.Variable(tf.random_normal([n_input, n_hidden]), name='hidden_w'),  # Hidden layer weights
+    'fc1': tf.Variable(tf.random_normal([n_steps * n_hidden, n_hidden]), name='fc1_w'),
+    'out': tf.Variable(tf.random_normal([n_hidden, n_classes]), name='out_w')
 }
 biases = {
-    'hidden': tf.Variable(tf.random_normal([n_hidden])),
-    'fc1': tf.Variable(tf.random_normal([n_hidden])),
-    'out': tf.Variable(tf.random_normal([n_classes]))
+    'hidden': tf.Variable(tf.random_normal([n_hidden]), name='hidden_b'),
+    'fc1': tf.Variable(tf.random_normal([n_hidden]), name='fc1_b'),
+    'out': tf.Variable(tf.random_normal([n_classes]), name='out_b')
 }
 
 '''
@@ -93,7 +93,7 @@ with tf.Session() as sess:
     for i in range(training_iters):
         # 持续迭代
         step = 1
-        while step * batch_size < 3265:
+        while step * batch_size < 1810:
             # 随机抽出这一次迭代训练时用的数据
             batch_xs = np.array(x_train[(step-1) * batch_size : step * batch_size])
             batch_ys = np.array(y_train[(step-1) * batch_size : step * batch_size])
@@ -114,8 +114,11 @@ with tf.Session() as sess:
             step += 1
     print("Optimization Finished!")
     # 载入测试集进行测试
-    test_len = 32
-    test_data = x_train[3265 - test_len:]
-    test_label = y_train[3265 - test_len:]
+    test_len = batch_size
+    test_data = x_train[1810 - test_len:]
+    test_label = y_train[1810 - test_len:]
     print("Testing Accuracy:",
           sess.run(accuracy, feed_dict={x: test_data, y: test_label, istate: np.zeros((test_len, 2 * n_hidden))}))
+    saver = tf.train.Saver()
+    save_path = saver.save(sess, "./model/model0.ckpt")
+    print("Model saved in file: %s" % save_path)

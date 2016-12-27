@@ -26,7 +26,7 @@ storeVecs(dataset, './data/dataset.txt')
 
 connection = pymysql.connect(user='root', password='root', database='GRE')
 cursor = connection.cursor()
-commit = "select * from GRES"
+commit = "select * from GRES1"
 cursor.execute(commit)
 label = []
 for each in cursor.fetchall():
