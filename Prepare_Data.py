@@ -15,8 +15,8 @@ def storeVecs(input, filename):
 
 goole_vecs = grabVecs('google_vecs.txt')
 dataset = []
-sentence = np.zeros((41, 300))
 for a in goole_vecs:
+    sentence = np.zeros((41, 300))
     m = len(a)
     start = int((41 - m) / 2)
     sentence[start:start + m] = a

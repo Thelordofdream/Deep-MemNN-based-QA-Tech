@@ -14,3 +14,6 @@ Word2Vec.pyc
 /vectors/
 vectors/
 /test.py
+/data/dataset.txt
+/data/label.txt
+/data/
