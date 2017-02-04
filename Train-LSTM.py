@@ -16,10 +16,6 @@ x_train = grabVecs('./data/dataset.txt')
 y_train = grabVecs('./data/label.txt')
 number = len(x_train)
 
-'''
-MNIST的数据是一个28*28的图像，这里RNN测试，把他看成一行行的序列（28维度（28长的sequence）*28行）
-'''
-
 # RNN学习时使用的参数
 learning_rate = 0.01
 training_iters = 30
